@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "name": "Browser Calculator",
+    "version": "1.0",
+
+    "description": "Just a simple calculator in browser.",
+    "homepage_url": "tba.com",
+    "icons": {
+        "32": "icons/calc-32.png",
+        "48": "icons/calc-48.png"
+    },
+
+    "browser_action": {
+        "default_icon": "icons/calc-48.png",
+        "default_title": "Calculator",
+        "default_popup": "popup/calc_window.html"
+    }
+
+
+}

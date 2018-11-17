@@ -1,0 +1,50 @@
+<!-- Credits to Zell Liew for the CSS layout of calculator -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+
+        <link rel="stylesheet" href="calc_window.css"/>
+    </head>
+
+    <body>
+        <div class="calculator">
+            <div class="screen">0</div>
+            <div class="keypad">
+                <!-- 7 8 9 ÷ C
+                     4 5 6 ×
+                     1 2 3 - =
+                      0  . +   -->
+                <div class="numbers">
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button id="zero">0</button>
+                    <button id="decimal" data-action="decimal">.</button>
+                </div>
+                <div class="operator">
+                    <button data-action="div">&divide;</button>
+                    <button data-action="mul">&times;</button>
+                    <button data-action="sub">-</button>
+                    <button data-action="add">+</button>
+                </div>
+                <div class="calc-main">
+                    <button id="clear" data-action="clear">AC</button>
+                    <button id="equal" data-action="equal">=</button>
+                </div>
+            </div>
+        </div>
+
+        <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+        <script src="calc_window.js"></script>
+    </body>
+
+
+</html>

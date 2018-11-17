@@ -1,0 +1,188 @@
+/* Credits to Zell Liew for the CSS layout of calculator */
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+/* Responsive Images */
+
+embed, iframe, img, object, video {
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+pre,
+blockquote,
+figure,
+hr {
+    margin: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    display: block;
+}
+
+/* Removes all decimals and discs from lists */
+
+ol, ul {
+    list-style: none;
+}
+
+/*
+ * Completely resets form items
+ * ----------------------------
+ * Super hard reset that removes all borders
+ * and radiuses of all form items (including
+ * checkboxes and radios)
+ */
+
+input, textarea, button {
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    outline: none;
+    text-align: left;
+}
+
+input:hover,
+input:active,
+input:focus,
+textarea:hover,
+textarea:active,
+textarea:focus,
+button:hover,
+button:active,
+button:focus {
+    outline: none;
+}
+
+:root {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Calculator CSS */
+
+html {
+    font-size: 150%;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.calculator {
+    border-radius: 10px;
+    border: solid;
+    box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    max-width: 12em;
+    overflow: hidden;
+}
+
+.screen {
+    background-color: black;
+    font-size: 1.6em;
+    color: white;
+    padding: 0.5em 0.75em;
+    text-align: right;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    background-color: grey;
+    grid-gap: 1px;
+}
+
+.numbers, .operator, .calc-main {
+    display: grid;
+    grid-gap: 1px;
+    background-color: grey;
+}
+
+/* Put content = "" and position = absolute, left, right, top, bot = 0 will get that
+   particular element styled */
+.keypad button:active::before,
+.keypad .pressed::before{
+    background-color: rgba(0, 0, 0, 0.2);
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.keypad button:active::before {
+    box-shadow: 0 0 15px green inset;
+}
+
+.numbers > button,
+.operator > button,
+.calc-main > button {
+    text-align: center;
+    position: relative;
+    padding: 0.5em 0.75em;
+    background-color: white;
+}
+
+button:focus {
+    outline: none;
+}
+
+.numbers {
+    grid-template-columns: auto auto auto;
+}
+
+#zero {
+    grid-column: span 2;
+}
+
+.operator > button {
+    background-color: lightgrey;
+}
+
+.calc-main {
+    grid-template-rows: auto 3fr;
+}
+
+#clear {
+    background-color: red;
+    color: white;
+}
+
+#equal {
+    background-color: orange;
+}
