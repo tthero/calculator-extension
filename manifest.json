@@ -4,7 +4,7 @@
     "version": "1.0",
 
     "description": "Just a simple calculator in browser.",
-    "homepage_url": "tba.com",
+    "homepage_url": "https://github.com/tthero/calculator-extension",
     "icons": {
         "32": "icons/calc-32.png",
         "48": "icons/calc-48.png"
@@ -15,6 +15,4 @@
         "default_title": "Calculator",
         "default_popup": "popup/calc_window.html"
     }
-
-
 }

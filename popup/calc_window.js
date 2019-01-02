@@ -4,7 +4,7 @@ var calculator = document.querySelector('.calculator');
 var screen = calculator.querySelector('.screen');
 var keys = calculator.querySelector('.keypad');
 
-
+// Calculate function
 function calculate(firstValue, operator, nextValue) {
     firstValue = parseFloat(firstValue);
     nextValue = parseFloat(nextValue);
@@ -19,7 +19,10 @@ function calculate(firstValue, operator, nextValue) {
         return firstValue / nextValue;
 }
 
-
+// Listen for clicks
+// Either it is on buttons or screen
+// If buttons, as usual, behave like buttons?
+// If screen, copy the results into clipboard
 keys.addEventListener('click', e => {
     if (e.target.matches('button')) {
         // Button (event.target)
@@ -58,6 +61,8 @@ keys.addEventListener('click', e => {
                 calculator.dataset.nextValue = "";
                 calculator.dataset.operator = "";
                 calculator.dataset.lastAction = "";
+
+                operatorOff();
             }
             // For CE button
             // Just clears the screen.textContent
@@ -69,7 +74,6 @@ keys.addEventListener('click', e => {
 
                 calculator.dataset.lastAction = "clear-screen";
             }
-            operatorOff();
         }
         else {
             // Operator: + - × ÷ buttons
@@ -150,7 +154,7 @@ keys.addEventListener('click', e => {
                         calculator.dataset.nextValue = "";
                     }
                 }
-                /**
+                /** For operators
                  *
                  **/
                 else if (lastAction === "operator") {
@@ -193,6 +197,21 @@ keys.addEventListener('click', e => {
             }
 
             toggleClearButton("CE");
+        }
+    }
+});
+
+screen.addEventListener('click', e => {
+    if (e.target.matches('.screen')) {
+        if (screen.textContent) {
+            // Tips on copying to clipboard:
+            // https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
+            const temp = document.createElement('textarea');
+            temp.value = screen.textContent;
+            screen.appendChild(temp);
+            temp.select();
+            document.execCommand("Copy");
+            screen.removeChild(temp);
         }
     }
 });
